@@ -1,0 +1,44 @@
+<% include ./partials/headers.ejs %>
+<div class="w-full min-h-screen bg-zinc-800 px-10 py-8 text-white">
+    <div class="cards columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
+      <% posts.forEach(function(elem){ %>
+        <div class="card mb-4 break-inside-avoid">
+          <div class="w-full bg-sky-200 rounded-lg overflow-hidden">
+            <img class="w-full" src="/images/uploads/<%= elem.image %>" alt="">
+          </div>
+          <h3 class="text-xs font-semibold mt-5">@<%= elem.user.username %></h3>
+          <h5 class="mt-2 text-sm"><%= elem.title %></h5>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  
+
+  <!-- Estilos para las cartas (aparte) -->
+  <style>
+    .cards {
+      column-count: 1;
+      column-gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .cards {
+        column-count: 2;
+      }
+    }
+    @media (min-width: 768px) {
+      .cards {
+        column-count: 3;
+      }
+    }
+    @media (min-width: 1024px) {
+      .cards {
+        column-count: 4;
+      }
+    }
+    .card {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+    }
+  </style>
+  
+<% include ./partials/footer.ejs %>
